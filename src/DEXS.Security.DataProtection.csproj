@@ -4,6 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>DEXS.Security.DataProtection</AssemblyName>
     <RootNamespace>DEXS.Security.DataProtection</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageId>DEXS.Security.DataProtection</PackageId>
+    <Company>DEXS Inc</Company>
+    <Version>1.0.0</Version>
+    <RepositoryUrl>https://www.nuget.org/packages/DEXS.Security.DataProtection/</RepositoryUrl>
+    <Description>DEXS.Security.DataProtection is used to protect and unprotect data for multi-tenant and multi-scopes</Description>
   </PropertyGroup>
 
   <ItemGroup>
