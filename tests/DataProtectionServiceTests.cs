@@ -1,7 +1,6 @@
 using System;
-using System.Linq;
 using System.Text;
-using System.Xml.Serialization;
+using DEXS.Security.DataProtection.Tests.Models;
 using Newtonsoft.Json;
 using Xunit;
 using Xunit.Abstractions;
@@ -12,14 +11,12 @@ namespace DEXS.Security.DataProtection.Tests
     public class DataProtectionServiceTests
     {
         private readonly ITestOutputHelper _testOutputHelper;
-        private readonly IDataProtectionServiceFactory _dataProtectionServiceFactory;
         private readonly IDataProtectionService _dataProtectionService;
 
         public DataProtectionServiceTests(ITestOutputHelper testOutputHelper, IDataProtectionServiceFactory dataProtectionServiceFactory)
         {
             _testOutputHelper = testOutputHelper;
-            _dataProtectionServiceFactory = dataProtectionServiceFactory;
-            _dataProtectionService = _dataProtectionServiceFactory.CreateInstance("tests");
+            _dataProtectionService = dataProtectionServiceFactory.CreateInstance("tests");
         }
 
         [Fact]
@@ -78,6 +75,27 @@ namespace DEXS.Security.DataProtection.Tests
             var s = Encoding.UTF8.GetString(x);
             _testOutputHelper.WriteLine($"Unprotected [Test123] {s}");
             Assert.Equal("Test123", s);
+        }
+
+        [Fact]
+        public void CanProtectStrongType()
+        {
+            var data = new TestClass
+            {
+                FirstName = "Kevin",
+                LastName = "Smith"
+            };
+            var enc = _dataProtectionService.Protect<TestClass>(data);
+            _testOutputHelper.WriteLine($"Protected [TestClass] {Convert.ToBase64String(enc)}");
+        }
+
+        [Fact]
+        public void CanUnProtectStrongType()
+        {
+            var data =
+                "CfDJ8E+BPHCZOx5LnO1PsfR917eAK0kGqp8C0LFF53M7ykdlPoxEepgJ/rgxtaDuLgE0OTUrumrK7pmul7V3pMwfnnG2Ti0heBYZWIOIT9JOzec8FA05m2CmtyUo+HMA18wUSFOdBESy5fU/OGg0kX8o8MNHhn260eDq5i3o8Li5PK1K";
+            var dec = _dataProtectionService.UnProtect<TestClass>(Convert.FromBase64String(data));
+            _testOutputHelper.WriteLine($"UnProtected [TestClass] {JsonConvert.SerializeObject(dec)}");
         }
 
     }

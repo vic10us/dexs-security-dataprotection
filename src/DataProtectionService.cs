@@ -27,11 +27,6 @@ namespace DEXS.Security.DataProtection
             return Protect(ms.ToArray());
         }
 
-        public string ProtectToString<T>(T obj)
-        {
-            return Convert.ToBase64String(Protect(obj));
-        }
-
         public T UnProtect<T>(byte[] data)
         {
             var bson = UnProtect(data);
@@ -43,6 +38,11 @@ namespace DEXS.Security.DataProtection
                 var ser = new JsonSerializer();
                 return ser.Deserialize<T>(jsonReader);
             }
+        }
+
+        public string ProtectToString<T>(T obj)
+        {
+            return Convert.ToBase64String(Protect(obj));
         }
 
         public T UnProtectBase64String<T>(string data)

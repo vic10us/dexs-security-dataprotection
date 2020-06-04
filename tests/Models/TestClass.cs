@@ -1,4 +1,4 @@
-namespace DEXS.Security.DataProtection.Tests
+namespace DEXS.Security.DataProtection.Tests.Models
 {
     public class TestClass
     {
