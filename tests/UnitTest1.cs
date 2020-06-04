@@ -47,7 +47,7 @@ namespace DEXS.Security.DataProtection.Tests
         public void CanUnprotectString()
         {
             var x = _dataProtectionService.UnProtect(
-                "CfDJ8E-BPHCZOx5LnO1PsfR917ezgcCbdnci4e1bQq2ynmF1JyOqsKwoZ1Edudq42mElP_3ikLMOxnJjfKELKIhhP2NORyfY2t2ciB2yIENIoTVoHADhiXqiuuP6rDuAMIcuSg");
+                "CfDJ8E-BPHCZOx5LnO1PsfR917eQPBnuNyPquunH71BOnnK3XhiQfJkJEZro5ZPDJl4GpUXt_V0jPm6iS3a8RpQTbg4oeBJAobqL3EXZbsm5zs8UedynsDy1DnAJCE5r1iokjw");
             _testOutputHelper.WriteLine($"Unprotected: {x}");
             Assert.Equal("Test123", x);
         }
@@ -56,7 +56,7 @@ namespace DEXS.Security.DataProtection.Tests
         public void CanUnprotectObject()
         {
             var x = _dataProtectionService.UnProtectBase64String<object>(
-                "CfDJ8E+BPHCZOx5LnO1PsfR917eHgtll/yb9K8y0cCrdwIazhlA69UnmDQIeXp7d6eauIB6s4/vEAVUdDHX4cidBAsYZhgyD/urn3ZxgzdhaIyPE95xH6XQe99nK6JyF7s/8gQda2+Z+zlxBc1AZHhRJgZwqDh++8RsmEeLB2wm/UOh+");
+                "CfDJ8E+BPHCZOx5LnO1PsfR917dq8rpdtjptS2Fe90dTz8SEZbqu/y09hxTxOd4kjoBX9PSOBgXRo/EJ1FOb0iko2qBOgN0g7RgGByVHA/AI9NKlT3ety4RWR45Y1SJNQhwh7nt54dAaR/wnA/piYXfP+71tbrdkZLHtrix2mNz+ZxZM");
             _testOutputHelper.WriteLine($"Unprotected: {JsonConvert.SerializeObject(x, Formatting.Indented)}");
             Assert.NotNull(x);
         }
@@ -73,7 +73,7 @@ namespace DEXS.Security.DataProtection.Tests
         public void CanUnProtectByteArray()
         {
             var arr = Convert.FromBase64String(
-                "CfDJ8E+BPHCZOx5LnO1PsfR917dCjdFJBqqshxPM+nZMRjGnYyYLPRWwwgF+56xnCgCf/XZoYfcaZ2VxRTh/QVQ9KGNOqfyo24N6nE/DRY0wbeF8T+Q5PC7joflFbcZV+N7b9g==");
+                "CfDJ8E+BPHCZOx5LnO1PsfR917d+nc9M/W1g59/XqkzMLZ2IL6GAcvteI69JuODRsihczcUFn1FuKL00tjVBtcHULNxYEuNmz9YXk9PokVz4REJdr5Uy4xYeE7/pA1g88cASJA==");
             var x = _dataProtectionService.UnProtect(arr);
             var s = Encoding.UTF8.GetString(x);
             _testOutputHelper.WriteLine($"Unprotected [Test123] {s}");

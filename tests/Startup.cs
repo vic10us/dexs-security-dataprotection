@@ -15,7 +15,7 @@ namespace DEXS.Security.DataProtection.Tests
         {
             services.AddDataProtectionServices(config =>
             {
-                config.ConnectionString = "Path=keys;";
+                config.ConnectionString = "Path=./keys;";
                 config.KeyLifeTime = TimeSpan.FromDays(14);
                 config.Type = DataProtectionPersistenceType.FileSystem;
             });
