@@ -12,6 +12,7 @@ namespace DEXS.Security.DataProtection
         public static IDataProtectionBuilder ConfigureDataProtection(this IDataProtectionBuilder builder, DataProtectionOptions options)
         {
             builder.SetDefaultKeyLifetime(options.KeyLifeTime);
+            builder.SetApplicationName("SecretService");
             var csBuilder = new System.Data.Common.DbConnectionStringBuilder
             {
                 ConnectionString = options.ConnectionString
@@ -20,7 +21,9 @@ namespace DEXS.Security.DataProtection
             switch (options.Type)
             {
                 case DataProtectionPersistenceType.FileSystem:
-                    builder.PersistKeysToFileSystem(new DirectoryInfo(csBuilder["Path"].ToString()));
+                    var dirInfo = new DirectoryInfo(csBuilder["Path"].ToString());
+                    Console.WriteLine(dirInfo.FullName);
+                    builder.PersistKeysToFileSystem(dirInfo);
                     return builder;
                 case DataProtectionPersistenceType.Redis:
                 {
