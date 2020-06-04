@@ -15,6 +15,7 @@ namespace DEXS.Security.DataProtection.Tests
         {
             services.AddDataProtectionServices(config =>
             {
+                config.ApplicationName = "SecretService";
                 config.ConnectionString = "Path=./keys;";
                 config.KeyLifeTime = TimeSpan.FromDays(14);
                 config.Type = DataProtectionPersistenceType.FileSystem;

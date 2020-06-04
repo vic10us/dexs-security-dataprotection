@@ -2,7 +2,6 @@
 using System.IO;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using StackExchange.Redis;
 
 namespace DEXS.Security.DataProtection
@@ -12,7 +11,7 @@ namespace DEXS.Security.DataProtection
         public static IDataProtectionBuilder ConfigureDataProtection(this IDataProtectionBuilder builder, DataProtectionOptions options)
         {
             builder.SetDefaultKeyLifetime(options.KeyLifeTime);
-            builder.SetApplicationName("SecretService");
+            builder.SetApplicationName(options.ApplicationName);
             var csBuilder = new System.Data.Common.DbConnectionStringBuilder
             {
                 ConnectionString = options.ConnectionString
@@ -22,7 +21,6 @@ namespace DEXS.Security.DataProtection
             {
                 case DataProtectionPersistenceType.FileSystem:
                     var dirInfo = new DirectoryInfo(csBuilder["Path"].ToString());
-                    Console.WriteLine(dirInfo.FullName);
                     builder.PersistKeysToFileSystem(dirInfo);
                     return builder;
                 case DataProtectionPersistenceType.Redis:
@@ -39,12 +37,10 @@ namespace DEXS.Security.DataProtection
             }
         }
 
-        public static IServiceCollection AddDataProtectionServices(this IServiceCollection services,
-            Action<DataProtectionOptions> options)
+        public static IServiceCollection AddDataProtectionServices(this IServiceCollection services, Action<DataProtectionOptions> options)
         {
             var opt = new DataProtectionOptions();
             options(opt);
-            Console.WriteLine(JsonConvert.SerializeObject(opt, Formatting.Indented));
             services.AddDataProtectionServices(opt);
             return services;
         }

@@ -15,6 +15,7 @@ What the DataProtectionService does is abstract the implementation with an easy 
 {
   ...
   "DataProtection": {
+	"ApplicationName": "SecretService",
     "KeyLifeTime": "14.00:00:00",
     "Type": "FileSystem",
     "ConnectionString": "Path=keys;"
@@ -27,6 +28,7 @@ What the DataProtectionService does is abstract the implementation with an easy 
 {
   ...
   "DataProtection": {
+	"ApplicationName": "SecretService",
     "KeyLifeTime": "14.00:00:00",
     "Type": "Redis",
     "ConnectionString": "uri=localhost;keystore=DataProtection-Keys;"
