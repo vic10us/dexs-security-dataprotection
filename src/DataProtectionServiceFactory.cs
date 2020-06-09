@@ -6,6 +6,8 @@ namespace DEXS.Security.DataProtection
     {
         private readonly IDataProtectionProvider _dataProtectionProvider;
 
+        public IDataProtectionProvider Protector => _dataProtectionProvider;
+
         public DataProtectionServiceFactory(IDataProtectionProvider dataProtectionProvider)
         {
             _dataProtectionProvider = dataProtectionProvider;
