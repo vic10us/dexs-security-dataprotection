@@ -28,7 +28,9 @@
 				"jmrog.vscode-nuget-package-manager",
 				"icsharpcode.ilspy-vscode",
 				"eamodio.gitlens",
-				"vivaxy.vscode-conventional-commits"
+				"vivaxy.vscode-conventional-commits",
+				"adrianwilczynski.user-secrets",
+				"KishoreIthadi.dotnet-core-essentials"
 			]
 		}
 	},
