@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30104.148
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DEXS.Security.DataProtection", "src\DEXS.Security.DataProtection.csproj", "{903394B9-3712-44D1-A51B-4E83B40AF923}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DEXS.Security.DataProtection.Tests", "tests\DEXS.Security.DataProtection.Tests.csproj", "{030C99CE-5B55-46E6-8065-D7E9E83E4C2F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{76CFDC8B-C40F-4E0F-977E-7A719C5D8934}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEXS.Security.DataProtection.Tests", "tests\DEXS.Security.DataProtection.Tests\DEXS.Security.DataProtection.Tests.csproj", "{290065E7-FA50-4FA6-A4CE-2D662DFE35FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{903394B9-3712-44D1-A51B-4E83B40AF923}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{903394B9-3712-44D1-A51B-4E83B40AF923}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{903394B9-3712-44D1-A51B-4E83B40AF923}.Release|Any CPU.Build.0 = Release|Any CPU
-		{030C99CE-5B55-46E6-8065-D7E9E83E4C2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{030C99CE-5B55-46E6-8065-D7E9E83E4C2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{030C99CE-5B55-46E6-8065-D7E9E83E4C2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{030C99CE-5B55-46E6-8065-D7E9E83E4C2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{290065E7-FA50-4FA6-A4CE-2D662DFE35FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{290065E7-FA50-4FA6-A4CE-2D662DFE35FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{290065E7-FA50-4FA6-A4CE-2D662DFE35FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{290065E7-FA50-4FA6-A4CE-2D662DFE35FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
